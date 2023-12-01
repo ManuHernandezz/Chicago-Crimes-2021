@@ -22,3 +22,9 @@ correlations with weather. It also examines street-specific crime patterns, offe
     ORDER BY Crime_Count DESC
 
 
+| crime_type      | Crime_Count | 
+| :---        |    :----:   |
+| battery      | 39988       |
+| assault   | 20086        |
+|  homicide           |    803         |
+

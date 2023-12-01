@@ -127,7 +127,7 @@ correlations with weather. It also examines street-specific crime patterns, offe
  |month_name	|Crimes_by_month|
  | :---        |    :----:   | 
 |October	|19018|
-|September	18987|
+|September	|18987|
 |July	|18966|
 |June	|18566|
 |August	|18255|

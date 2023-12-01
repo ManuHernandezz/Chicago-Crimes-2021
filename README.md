@@ -161,7 +161,7 @@ correlations with weather. It also examines street-specific crime patterns, offe
 ## 8) What month had the most homicides and what was the average temperature? (I decided to make two subqueries and join them all into one)
 
  
-month_name	homicide_count	avg_high_temp
+|month_name	|homicide_count	|avg_high_temp|
 | :---        |    :----:   | :----:   | 
 |July	|112	|82.0|
 |September	|89	|80.0|

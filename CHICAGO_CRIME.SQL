@@ -153,12 +153,15 @@ GROUP BY crime_type
 ORDER BY crime_count DESC
 
 --What are the top 5 least reported crime, how many arrests were made?
-SELECT crime_type, COUNT(*) AS crime_count, 
-	SUM (CASE WHEN arrest =  'TRUE' THEN 1
-	ELSE 0
-	END) AS 'Arrest_count'
-	ROUND(100 * (arre
-FROM chicago_crime
-GROUP BY crime_type
-ORDER BY crime_count ASC
-LIMIT 5
+SELECT 
+    crime_type, 
+    COUNT(*) AS crime_count, 
+    SUM(CASE WHEN arrest = 'TRUE' THEN 1 ELSE 0 END) AS Arrest_count,
+    ROUND(100.0 * SUM(CASE WHEN arrest = 'TRUE' THEN 1 ELSE 0 END) / COUNT(*), 2) AS arrest_percentage
+FROM 
+    chicago_crime
+GROUP BY 
+    crime_type
+ORDER BY 
+    crime_count ASC
+LIMIT 5;

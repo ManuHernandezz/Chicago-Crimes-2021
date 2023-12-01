@@ -1,5 +1,5 @@
 
-(<img src="https://github.com/ManuHernandezz/Chicago-Crimes-2021/assets/130862652/c8810714-a638-4de3-a859-9a5ee0bde115" width="100" height="100">)
+<img src="https://github.com/ManuHernandezz/Chicago-Crimes-2021/assets/130862652/c8810714-a638-4de3-a859-9a5ee0bde115" width="150" height="150">
 
 # Chicago-Crimes-2021
 This SQL project analyzes Chicago's 2021 crime data, covering total crimes, specific types like homicides, community-level trends, and 

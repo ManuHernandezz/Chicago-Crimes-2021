@@ -139,6 +139,45 @@ correlations with weather. It also examines street-specific crime patterns, offe
 |December|	14258|
 |February	|12888|
 
+## 7) I add a column that indicates the month in the temps table
+	ALTER TABLE chicago_temps_2021 ADD COLUMN month_name TEXT;
+
+	UPDATE chicago_temps_2021
+	SET month_name = CASE
+                    WHEN SUBSTR(crime_date, 1, 2) = '1/' THEN 'January'
+                    WHEN SUBSTR(crime_date, 1, 2) = '2/' THEN 'February'
+                    WHEN SUBSTR(crime_date, 1, 2) = '3/' THEN 'March'
+                    WHEN SUBSTR(crime_date, 1, 2) = '4/' THEN 'April'
+                    WHEN SUBSTR(crime_date, 1, 2) = '5/' THEN 'May'
+                    WHEN SUBSTR(crime_date, 1, 2) = '6/' THEN 'June'
+                    WHEN SUBSTR(crime_date, 1, 2) = '7/' THEN 'July'
+                    WHEN SUBSTR(crime_date, 1, 2) = '8/' THEN 'August'
+                    WHEN SUBSTR(crime_date, 1, 2) = '9/' THEN 'September'
+                    WHEN SUBSTR(crime_date, 1, 2) = '10' THEN 'October'
+                    WHEN SUBSTR(crime_date, 1, 2) = '11' THEN 'November'
+                    WHEN SUBSTR(crime_date, 1, 2) = '12' THEN 'December'
+                    ELSE 'Unknown'
+                  END;
+## 8) What month had the most homicides and what was the average temperature? (I decided to make two subqueries and join them all into one)
+
+ 
+month_name	homicide_count	avg_high_temp
+| :---        |    :----:   | :----:   | 
+|July	|112	|82.0|
+|September	|89	|80.0|
+|June	|85	|84.0|
+|August	|81	|86.0|
+|May	|66	|70.0|
+|October	|64	|67.0|
+|November	|62	|49.0|
+|January	|55	|34.0|
+|April	|54	|61.0|
+|December	|52	|46.0|
+|March	|45	|53.0|
+|February	|38	|27.0|
+
+
+
 
 
 

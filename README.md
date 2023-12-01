@@ -195,7 +195,26 @@ correlations with weather. It also examines street-specific crime patterns, offe
 |kedzie ave	|1606|
 |madison st	|1584|
 
+## 10) What are the top ten city streets that have had the most homicides including ties?
+	SELECT street_name, COUNT(crime_type) AS count_crimes
+	FROM chicago_crime
+	where crime_type = 'homicide'
+	GROUP BY street_name
+	ORDER BY count_crimes DESC
+	LIMIT 10
 
+|street_name	|count_crimes|
+| :---        |    :----:   | 
+|madison st	|14|
+|79th st	|14|
+|morgan st	|10|
+|71st st	|10|
+|michigan ave	|9|
+|cottage grove ave|	9|
+|van buren st|	8|
+|state st	|7|
+|pulaski rd	|7|
+|polk st	|7|
 
 
 

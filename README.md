@@ -28,3 +28,44 @@ correlations with weather. It also examines street-specific crime patterns, offe
 | assault   | 20086        |
 |  homicide           |    803         |
 
+
+## 3) Create a  table that joins data from all three tables
+
+    DROP TABLE If EXISTS chicago_crime;
+    CREATE TABLE chicago_crime AS
+	    SELECT
+	    cr.extracted_date AS crime_date,
+	    cr.crime_type,
+	    cr.crime_description,
+	    cr.crime_location,
+	    cr.city_block AS street_name,
+	    ca.name AS community_name,
+	    ca.population,
+	    ca.area_sq_mi,
+	    ca.density,
+	    cr.arrest,
+	    cr.domestic,
+	    --ct.temp_high,
+	    --ct.temp_low,
+	    --ct.precipitation,
+	    cr.latitude,
+	    cr.longitude
+    FROM chicago_crimes_2021 AS cr
+    JOIN chicago_areas AS ca
+    ON cr.community_id = ca.community_area_id
+    JOIN chicago_temps_2021 AS ct
+    ON cr.crime_date = ct.date
+
+
+## 4) What are the top ten communities that had the most crimes reported?
+-We will also add the current population to see if area density is also a factor.
+    SELECT community_name AS 'community', population, density, COUNT (*) AS 'reported_crimes'
+    FROM chicago_crime
+    GROUP BY community_name, population, density
+    ORDER BY reported_crimes DESC
+    LIMIT 10
+
+
+
+
+

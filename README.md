@@ -176,6 +176,24 @@ correlations with weather. It also examines street-specific crime patterns, offe
 |March	|45	|53.0|
 |February	|38	|27.0|
 
+## 9)What are the top ten city streets that have had the most reported crimes?
+	SELECT street_name, COUNT(*) AS count_crimes
+	FROM chicago_crime
+	GROUP BY street_name
+	ORDER BY count_crimes DESC
+	LIMIT 10
+|street_name	|count_crimes|
+| :---        |    :----:   | 
+|michigan ave	|3257|
+|state st	|2858|
+|halsted st	|2329|
+|ashland ave	|2276|
+|clark st	|2036|
+|western ave	|1987|
+|dr martin luther king jr dr	|1814|
+|pulaski rd	|1686|
+|kedzie ave	|1606|
+|madison st	|1584|
 
 
 

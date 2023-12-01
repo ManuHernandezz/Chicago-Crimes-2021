@@ -5,6 +5,8 @@ correlations with weather. It also examines street-specific crime patterns, offe
 ## 1) --How many total crimes were reported in 2021?
     SELECT COUNT (*)
     FROM chicago_crimes_2021
+
+    
                     | COUNT      | 
                     | :---       | 
                     |   202536   | 

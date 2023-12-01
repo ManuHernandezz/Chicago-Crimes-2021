@@ -77,6 +77,26 @@ correlations with weather. It also examines street-specific crime patterns, offe
 |west town	|87781	|19166.16|5486|
 |loop|	42298	|25635.15|5446|
 
+## 5) What are the top ten communities that had the least amount of crimes reported? We will also add the current population to see if area density is also a factor
+	SELECT community_name AS 'community', population, density, COUNT(*) AS 'reported_crimes'
+	FROM chicago_crime
+	GROUP BY community_name, population, density
+	ORDER BY reported_crimes ASC
+	LIMIT 10
+
+ |community	|population	|density	|reported_crimes|
+ | :---        |    :----:   |    :----:   |    :----:   |
+|edison park	|11525	|10199.12	|238|
+|burnside	|2527	|4142.62	|321|
+|forest glen	|19596	|6123.75	|460|
+|mount greenwood	|18628	|6873.8	|492|
+|montclare	|14401	|14546.46	|508|
+|fuller park	|2567	|3615.49	|541|
+|oakland	|6799	|11722.41	|581|
+|hegewisch|	10027	|1913.55	|598|
+|archer heights|	14196|	7062.69	|653|
+|north park|	17559	|6967.86|	679|
+
 
 
 

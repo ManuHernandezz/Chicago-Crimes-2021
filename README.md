@@ -65,8 +65,8 @@ correlations with weather. It also examines street-specific crime patterns, offe
     LIMIT 10
 
 |community	|population	|density	|reported_crimes|
-| :---        |    :----:   |
-|austin|	|96557	|13504.48|11341|
+| :---        |    :----:   |    :----:   |    :----:   |
+|austin|	|96557	|13504.48 |11341|
 |near north side	|105481	|38496.72|8126|
 |south shore	|53971	|18420.14|7272|
 |near west side	|67881	|11929.88|6743|

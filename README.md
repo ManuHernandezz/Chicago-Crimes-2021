@@ -217,5 +217,80 @@ correlations with weather. It also examines street-specific crime patterns, offe
 |polk st	|7|
 
 
+## 11) What are the top ten city streets that have had the most burglaries?
+	SELECT street_name, COUNT(crime_type) AS count_crimes
+	FROM chicago_crime
+	WHERE crime_type = 'burglary'
+	GROUP BY street_name
+	ORDER BY count_crimes DESC
+	LIMIT 10
+
+|street_name|	count_crimes|
+| :---        |    :----:   | 
+|ashland ave	|104|
+|halsted st	|103|
+|michigan ave	|92|
+|western ave	|79|
+|kedzie ave	|67|
+|north ave	|62|
+|dr martin luther king jr dr	|50|
+|chicago ave	|50|
+|79th st	|48|
+|sheridan rd	|45|
+
+## 12) What is the number and types of reported crimes on Michigan Ave (The Rodeo Drive of the Midwest)?
+	SELECT crime_type, COUNT (*) AS crime_count
+	FROM chicago_crime
+	WHERE street_name LIKE '%michigan ave%'
+	GROUP BY crime_type
+	ORDER BY crime_count DESC
+
+ |crime_type|	crime_count|
+ | :---        |    :----:   | 
+|theft	|923|
+|battery	|564|
+|assault	|324|
+|deceptive practice	|317|
+|criminal damage	|269|
+|motor vehicle theft	|212|
+|other offense	|172|
+|weapons violation	|106|
+|robbery	|106|
+|burglary	|92|
+|criminal trespass	|53|
+|criminal sexual assault	|30|
+|offense involving children	|22|
+|narcotics	|16|
+|public peace violation|	14|
+|sex offense	|10|
+|homicide	|9|
+|liquor law violation|	8|
+|stalking	|5|
+|interference with public officer	|5|
+|obscenity	|1|
+|intimidation	|1|
+|concealed carry license violation	|1|
+|arson	|1|
+
+## 13) What are the top 5 least reported crime, how many arrests were made?
+	SELECT crime_type, COUNT(*) AS crime_count, 
+	SUM (CASE WHEN arrest =  'TRUE' THEN 1
+	ELSE 0
+	END) AS 'Arrest_count'
+	ROUND(100 * (arre
+	FROM chicago_crime
+	GROUP BY crime_type
+	ORDER BY crime_count ASC
+	LIMIT 5
+
+ |crime_type	|crime_count	|Arrest_count	|arrest_percentage|
+  | :---        |    :----:   |  :---        |    :----:   | 
+|other narcotic violation	|2	|1	|50.0|
+|non-criminal	|4	|1	|25.0|
+|public indecency	|4	|4	|100.0|
+|human trafficking	|12	|0	|0.0|
+|gambling	|13	|11	|84.62|
+
+
 
 

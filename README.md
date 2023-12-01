@@ -98,6 +98,47 @@ correlations with weather. It also examines street-specific crime patterns, offe
 |north park|	17559	|6967.86|	679|
 
 
+## 6)What month had the most crimes reported?
+	ALTER TABLE chicago_crime ADD COLUMN month_name TEXT; --First, I create a new column
+
+	UPDATE chicago_crime
+	SET month_name = CASE
+                    WHEN SUBSTR(crime_date, 1, 2) = '1/' THEN 'January'
+                    WHEN SUBSTR(crime_date, 1, 2) = '2/' THEN 'February'
+                    WHEN SUBSTR(crime_date, 1, 2) = '3/' THEN 'March'
+                    WHEN SUBSTR(crime_date, 1, 2) = '4/' THEN 'April'
+                    WHEN SUBSTR(crime_date, 1, 2) = '5/' THEN 'May'
+                    WHEN SUBSTR(crime_date, 1, 2) = '6/' THEN 'June'
+                    WHEN SUBSTR(crime_date, 1, 2) = '7/' THEN 'July'
+                    WHEN SUBSTR(crime_date, 1, 2) = '8/' THEN 'August'
+                    WHEN SUBSTR(crime_date, 1, 2) = '9/' THEN 'September'
+                    WHEN SUBSTR(crime_date, 1, 2) = '10' THEN 'October'
+                    WHEN SUBSTR(crime_date, 1, 2) = '11' THEN 'November'
+                    WHEN SUBSTR(crime_date, 1, 2) = '12' THEN 'December'
+                    ELSE 'Unknown'
+                  END;
+
+
+	SELECT month_name, COUNT(month_name) AS Crimes_by_month
+	FROM chicago_crime
+	GROUP BY month_name
+	ORDER BY Crimes_by_month DESC
+
+ |month_name	|Crimes_by_month|
+ | :---        |    :----:   | 
+|October	|19018|
+|September	18987|
+|July	|18966|
+|June	|18566|
+|August	|18255|
+|May	|17539|
+|November|	16974|
+|January|	16038|
+|March	|15742|
+|April	|15305|
+|December|	14258|
+|February	|12888|
+
 
 
 

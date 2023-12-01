@@ -72,8 +72,8 @@ correlations with weather. It also examines street-specific crime patterns, offe
 |near west side	|67881	|11929.88|6743|
 |north lawndale	|34794	|10839.25|6161|
 |auburn gresham	|44878	|11903.98|5873|
-|humboldt park	|54165	|15045.83|	|5767|
-|greater grand crossing	|31471|8865.07|	|5545|
+|humboldt park	|54165	|15045.83|	5767|
+|greater grand crossing	|31471|8865.07|	5545|
 |west town	|87781	|19166.16|5486|
 |loop|	42298	|25635.15|5446|
 

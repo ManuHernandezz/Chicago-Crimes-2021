@@ -57,13 +57,26 @@ correlations with weather. It also examines street-specific crime patterns, offe
     ON cr.crime_date = ct.date
 
 
-## 4) What are the top ten communities that had the most crimes reported?
--We will also add the current population to see if area density is also a factor.
+## 4) What are the top ten communities that had the most crimes reported? We will also add the current population to see if area density is also a factor.
     SELECT community_name AS 'community', population, density, COUNT (*) AS 'reported_crimes'
     FROM chicago_crime
     GROUP BY community_name, population, density
     ORDER BY reported_crimes DESC
     LIMIT 10
+
+|community	|population	|density	|reported_crimes|
+| :---        |    :----:   |
+|austin|	|96557	|13504.48|11341|
+|near north side	|105481	|38496.72|8126|
+|south shore	|53971	|18420.14|7272|
+|near west side	|67881	|11929.88|6743|
+|north lawndale	|34794	|10839.25|6161|
+|auburn gresham	|44878	|11903.98|5873|
+|humboldt park	|54165	|15045.83|	|5767|
+|greater grand crossing	|31471|8865.07|	|5545|
+|west town	|87781	|19166.16|5486|
+|loop|	42298	|25635.15|5446|
+
 
 
 
